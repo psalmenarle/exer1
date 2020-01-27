@@ -2,27 +2,16 @@
 <btsprofile>  
 
 <profile>  
-  <to>Vimal</to>  
-  <from>Sonoo</from>  
-  <heading>Hello</heading>  
-  <body>Hello brother, how are you!</body>  
+  <realname>Kim Namjoon</realname>  
+  <stagename>RM</stagename>  
+  <position>Leader, Main Rapper</position>  
+  <btype>A</btype>  
 </profile>  
-<email>  
-  <to>Peter</to>  
-  <from>Jack</from>  
-  <heading>Birth day wish</heading>  
-  <body>Happy birth day Tom!</body>  
-</email>  
-<email>  
-  <to>James</to>  
-  <from>Jaclin</from>  
-  <heading>Morning walk</heading>  
-  <body>Please start morning walk to stay fit!</body>  
-</email>  
-<email>  
-  <to>Kartik</to>  
-  <from>Kumar</from>  
-  <heading>Health Tips</heading>  
-  <body>Smoking is injurious to health!</body>  
-</email>  
+<profile>  
+  <realname>Kim Seokjin</realname>  
+  <stagename>Jin</stagename>  
+  <position>Vocalist, Visualr</position>  
+  <btype>O</btype>  
+</profile>  
+  
 </btsprofile>
