@@ -10,28 +10,33 @@ $conn = mysqli_connect($host, $username, $password, $database);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+
+ $sql = "SELECT * FROM btsprofile ORDER BY id DESC LIMIT 20";
+ $query = mysqli_query($con,$sql);
+    
+ header( "Content-type: text/xml");
+
+echo "<?xml version='1.0' encoding='UTF-8'?>
+ <rss version='2.0'>
+ <channel>
+ <realname> Yeontan </realname>
+ <stagename> tanie </stagename>
+ <position>cutie</position>
+ <language>en-us</language>";
+ 
+ while($row = mysqli_fetch_array($con,$query)){
+   $realname=$row["realname"];
+   $stagename=$row["stagename"];
+   $position=$row["position"];
+   $btype=$row["btype"];
+     
+   echo "<profile>
+   <realname>$realname</realname>
+   <stagename>$stagename</stagename>
+   <position>$position</position>
+   <btype>$btype</btype>
+   </profile>";
+ }
+ echo "</channel></rss>";
 ?>
-<!DOCTYPE html>
-<html>
-<body onload="loadXMLDoc()">
-
-<h2>Using the XMLHttpRequest Object</h2>
-
-<div id="demo">
-</div>
-
-<script>
-function loadXMLDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML =
-      this.responseText;
-    }
-  };
-  xhttp.open("GET", "btsprofile.xml", true);
-  xhttp.send();
-}
-</script>
-</body>
-</html>
