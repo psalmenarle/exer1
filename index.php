@@ -27,9 +27,9 @@
                   <li>Position: $position </li>
                   <li>Bloodtype: $btype </li>
               </ul>
+    </ul>
             ";
   ?>
 <?php
  }
 ?>
-</ul>
