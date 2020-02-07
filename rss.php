@@ -11,11 +11,11 @@
     while($records= mysqli_fetch_assoc($query)){
         extract($records);
         
-        $rss .= '<profile'>;
-        $rss .= '<realname>' . $article_title . '</realname>';
-        $rss .= '<stagename>' . $description . '</stagename>';
-        $rss .= '<position>' . $author . '</position>';
-        $rss .= '<btype>' . $date_created . '</btype>';
+        $rss .= '<profile>';
+        $rss .= '<realname>' . $realname . '</realname>';
+        $rss .= '<stagename>' . $stagename . '</stagename>';
+        $rss .= '<position>' . $position . '</position>';
+        $rss .= '<btype>' . $btype . '</btype>';
         $rss .= '</profile>';
     }
     $rss .= '</channel>';
