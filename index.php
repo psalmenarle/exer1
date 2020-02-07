@@ -11,9 +11,9 @@
 
     <?php
  foreach( $content as $data )
- { ?>
+ { 
 
-<?php
+
    $realname = $data->getElementsByTagName("realname")->item(0)->nodeValue;
    $stagename = $data->getElementsByTagName("stagename")->item(0)->nodeValue;
    $position = $data->getElementsByTagName("position")->item(0)->nodeValue;
@@ -29,7 +29,5 @@
               </ul>
     </ul>
             ";
-  ?>
-<?php
  }
 ?>
