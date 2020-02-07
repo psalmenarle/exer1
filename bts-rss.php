@@ -7,7 +7,7 @@
 }
 
 
- $sql = "SELECT * FROM btsprofile ORDER BY id DESC LIMIT 20";
+ $sql = "SELECT * FROM btsprofile";
  $query = mysqli_query($conn,$sql);
     
  header( "Content-type: text/xml");
