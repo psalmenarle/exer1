@@ -2,7 +2,7 @@
 
 
  $domOBJ = new DOMDocument();
- $domOBJ->load("https://exer-1.herokuapp.com/bts-rss.php");  
+ $domOBJ->load("https://xml-1.herokuapp.com/bts-rss.php");  
  
  $content = $domOBJ->getElementsByTagName("profile");
  
