@@ -16,11 +16,11 @@ echo "<?xml version='1.0' encoding='UTF-8'?>
  <rss version='2.0'>
  <channel>";
  
- while($row = mysqli_fetch_array($conn,$query)){
-   $realname=$row["realname"];
-   $stagename=$row["stagename"];
-   $position=$row["position"];
-   $btype=$row["btype"];
+ while($row = mysqli_fetch_array($query)){
+   $realname=$row['realname'];
+   $stagename=$row['stagename'];
+   $position=$row['position'];
+   $btype=$row['btype'];
      
    echo "<profile>
    <realname>$realname</realname>
