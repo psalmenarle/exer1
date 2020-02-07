@@ -1,25 +1,31 @@
+<?php 
+    $conn = mysqli_connect("dbrojasdev.cjw42bnplsor.us-east-1.rds.amazonaws.com", "admin", "root1234") or die (mysqli_error($conn));
+    $db = mysqli_select_db($conn, "db_1820944");
 
-<?php
-    $rss= '<?xml version="1.0" encoding="UTF-8"?>';
-    $rss .= '<rss version="2.0">';
-    $rss .= '<channel>';
-
-    $connect = mysqli_connect("dbrojasdev.cjw42bnplsor.us-east-1.rds.amazonaws.com", "admin", "root1234", "db_1820944") or die (mysqli_error($connect));
-    $sql = "SELECT * FROM btsprofile;";
-    $query = mysqli_query($connect, $sql) or die (mysqli_error($connect));
-
-    while($records= mysqli_fetch_assoc($query)){
-        extract($records);
-        
-        $rss .= '<profile>';
-        $rss .= '<realname>' . $realname . '</realname>';
-        $rss .= '<stagename>' . $stagename . '</stagename>';
-        $rss .= '<position>' . $position . '</position>';
-        $rss .= '<btype>' . $btype . '</btype>';
-        $rss .= '</profile>';
+    if(mysqli_connect_errno($conn)){
+        echo "Database connection failed!: ". mysqli_connect_errno();
     }
-    $rss .= '</channel>';
-    $rss .= '</rss>';
+    $sql = "SELECT * FROM btsprofile";
+    $q = mysqli_query($conn, $sql);
 
-    echo $rss;
+    header("Content-type: text/xml");
+
+    echo "<?xml version='1.0' encoding='UTF-8'?>
+        <rss version='2.0'><channel>";
+    
+    while($r = mysqli_fetch_array($q)){
+
+        $realname = $r['realname'];
+        $stagename = $r['stagename'];
+        $position = $r['position'];
+        $btype = $r['btype'];
+
+        echo "<profile>
+        <realname>$realname</realname>
+        <stagename>$stagename</stagename>
+        <position>$position</position>
+        <btype>$btype</btype>
+        </profile>";
+    }
+    echo "</channel></rss>";
 ?>
