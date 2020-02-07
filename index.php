@@ -2,12 +2,13 @@
 
 
  $domOBJ = new DOMDocument();
- $domOBJ->load("btsprofile.xml");  
+ $domOBJ->load("https://exer-1.herokuapp.com/bts-rss.php");  
  
  $content = $domOBJ->getElementsByTagName("profile");
  
  ?>
- <ul>
+  <h1>BTS</h1>
+
     <?php
  foreach( $content as $data )
  {
@@ -16,8 +17,15 @@
    $position = $data->getElementsByTagName("position")->item(0)->nodeValue;
    $btype = $data->getElementsByTagName("btype")->item(0)->nodeValue;
    echo "
-          $realname:$stagename:$position:$btype
-   ";
+   <ul>
+            <h2>BTS members</h2>
+              <ul>
+                  <li>Realname: $realname </li>
+                  <li>Stagename: $stagename </li>
+                  <li>Position: $position </li>
+                  <li>Bloodtype: $btype </li>
+              </ul>
+            ";
  }
 ?>
 </ul>
