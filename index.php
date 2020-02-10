@@ -1,30 +1,35 @@
 <?php
-
-
  $domOBJ = new DOMDocument();
- $domOBJ->load("https://www.nasa.gov/rss/dyn/breaking_news.rss");  
+ $domOBJ->load("https://exer-xml.herokuapp.com/rss.php");  
  
- $content = $domOBJ->getElementsByTagName("item");
+ $content = $domOBJ->getElementsByTagName("profile");
  
  ?>
   <h1>BTS</h1>
 
     <?php
  foreach( $content as $data )
+ { ?>
  { 
 
 
-   $title = $data->getElementsByTagName("title")->item(0)->nodeValue;
-   $link = $data->getElementsByTagName("link")->item(0)->nodeValue;
-   $description = $data->getElementsByTagName("description")->item(0)->nodeValue
+<?php
+   $realname = $data->getElementsByTagName("realname")->item(0)->nodeValue;
+   $stagename = $data->getElementsByTagName("stagename")->item(0)->nodeValue;
+   $position = $data->getElementsByTagName("position")->item(0)->nodeValue;
+   $btype = $data->getElementsByTagName("btype")->item(0)->nodeValue;
    echo "
    <ul>
-            <h2><a href = '$link'>$title </a></h2>
+            <h2>BTS members</h2>
               <ul>
-                  <li> $link </li>
-                  <li> $description </li>
+                  <li>Realname: $realname </li>
+                  <li>Stagename: $stagename </li>
+                  <li>Position: $position </li>
+                  <li>Bloodtype: $btype </li>
               </ul>
     </ul>
             ";
+  ?>
+<?php
  }
 ?>
